@@ -5,7 +5,7 @@
             <div style="display:inline-flex">
                 <h2 class="blog-post-title">{{$post->title}}</h2>
                 @if($isShow)
-                    <a style="margin: auto" href="/posts/62/edit">
+                    <a style="margin: auto" href="/posts/{{$post->id}}/edit">
                         <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
                     </a>
                 @endif

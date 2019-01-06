@@ -46,8 +46,8 @@ class PostController extends Controller {
         return redirect('/posts');
     }
 
-    public function edit() {
-        return view('post/edit');
+    public function edit(Post $post) {
+        return view('post/edit', compact('post'));
     }
 
     // 上传图片
