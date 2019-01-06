@@ -16,4 +16,15 @@ class Post extends Model {
     public function comments() {
         return $this->hasMany('App\Comment')->orderBy('created_at', 'desc');
     }
+
+    public function zan($user_id) {
+        return $this->hasOne(Zan::class)->where('user_id', $user_id);
+    }
+
+    /**
+     * 文章的所有赞
+     */
+    public function zans() {
+        return $this->hasMany(Zan::class);
+    }
 }
