@@ -15,6 +15,26 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+///////////////////////////////////////////////////////////////////////////
+// 用户模块
+///////////////////////////////////////////////////////////////////////////
+
+// 注册页面
+Route::get('/register', '\App\Http\Controllers\RegisterController@index');
+// 注册行为
+Route::post('/register', '\App\Http\Controllers\RegisterController@register');
+// 登录登出
+Route::get('/login', '\App\Http\Controllers\LoginController@login');
+Route::get('/logout', '\App\Http\Controllers\LoginController@logout');
+// 设置
+Route::get('/user/me/setting', '\App\Http\Controllers\UserController@setting');
+Route::post('/user/me/setting', '\App\Http\Controllers\UserController@settingStore');
+
+
+///////////////////////////////////////////////////////////////////////////
+// 文章模块
+///////////////////////////////////////////////////////////////////////////
+
 // 文章列表页
 Route::get('/posts', '\App\Http\Controllers\PostController@index');
 
