@@ -14,7 +14,7 @@
                 </a>
             </div>
 
-            <p class="blog-post-meta">{{$post->created_at}} by <a href="#">Kassandra Ankunding2</a>
+            <p class="blog-post-meta">{{$post->user->created_at}} by <a href="#">{{$post->user->name}}</a>
             </p>
 
             <p>
