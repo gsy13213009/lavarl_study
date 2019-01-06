@@ -13,8 +13,9 @@ class PostController extends Controller {
         return view('post/index', compact('posts'));
     }
 
-    public function show() {
-        return view('post/show', ['title'=>'你好哦你好', 'isShow' => true]);
+    public function show(Post $post) {
+        $isShow = true;
+        return view('post/show', compact('post', 'isShow'));
     }
 
     public function create() {
