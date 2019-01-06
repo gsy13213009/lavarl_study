@@ -24,7 +24,8 @@ Route::get('/register', '\App\Http\Controllers\RegisterController@index');
 // 注册行为
 Route::post('/register', '\App\Http\Controllers\RegisterController@register');
 // 登录登出
-Route::get('/login', '\App\Http\Controllers\LoginController@login');
+Route::get('/login', '\App\Http\Controllers\LoginController@index');
+Route::post('/login', '\App\Http\Controllers\LoginController@login');
 Route::get('/logout', '\App\Http\Controllers\LoginController@logout');
 // 设置
 Route::get('/user/me/setting', '\App\Http\Controllers\UserController@setting');
