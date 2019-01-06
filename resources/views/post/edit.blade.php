@@ -5,9 +5,7 @@
         <form action="/posts/{{$post->id}}" method="POST">
             {{--因为路由定义的是put方式，因此这里需要这个--}}
             {{method_field("PUT")}}
-            {{csrf_token()}}
-            <input type="hidden" name="_method" value="PUT">
-            <input type="hidden" name="_token" value="MESUY3topeHgvFqsy9EcM916UWQq6khiGHM91wHy">
+            {{csrf_field()}}
             <div class="form-group">
                 <label>标题</label>
                 <input name="title" type="text" class="form-control" placeholder="这里是标题"
@@ -20,6 +18,7 @@
             </div>
             <button type="submit" class="btn btn-default">提交</button>
         </form>
+        @include('layout.error')
         <br>
     </div><!-- /.blog-main -->
 @endsection

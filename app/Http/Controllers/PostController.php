@@ -46,8 +46,24 @@ class PostController extends Controller {
         return redirect('/posts');
     }
 
+    // 编辑页面
     public function edit(Post $post) {
         return view('post/edit', compact('post'));
+    }
+
+    // 编辑逻辑
+    public function update(Post $post) {
+        $this->validate(\request(), [
+            'title' => 'required|string|max:100|min:5',
+            'content' => 'required|string|min:10'
+        ]);
+
+        $post->title = \request('title');
+        $post->content = \request('content');
+
+        $post->save();
+
+        return redirect('/posts/' . $post->id);
     }
 
     // 上传图片
