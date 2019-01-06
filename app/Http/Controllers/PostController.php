@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Comment;
 use App\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -87,5 +88,20 @@ class PostController extends Controller {
 //        dd(request()->all());
         return asset('storage/' . $path);
     }
+
+    public function comment(Post $post) {
+        $this->validate(\request(), [
+            'content' => 'required|min:3'
+        ]);
+
+        $comment = new Comment();
+        $comment->user_id = Auth::id();
+        $comment->content = \request('content');
+
+        $post->comments()->save($comment);
+
+        return back();
+    }
+
 
 }

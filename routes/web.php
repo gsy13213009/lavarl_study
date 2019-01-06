@@ -50,6 +50,8 @@ Route::get('/posts/{post}/edit', '\App\Http\Controllers\PostController@edit');
 Route::put('/posts/{post}', '\App\Http\Controllers\PostController@update');
 //删除文档
 Route::get('/posts/{post}/delete', '\App\Http\Controllers\PostController@delete');
+// 评论
+Route::post('/posts/{post}/comment', '\App\Http\Controllers\PostController@comment');
 
 // 图片上传
 Route::post('/posts/image/upload', '\App\Http\Controllers\PostController@imageUpload');
