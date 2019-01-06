@@ -60,6 +60,8 @@ class PostController extends Controller {
             'content' => 'required|string|min:10'
         ]);
 
+        $this->authorize('update', $post);
+
         $post->title = \request('title');
         $post->content = \request('content');
 

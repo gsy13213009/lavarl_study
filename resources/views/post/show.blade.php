@@ -4,22 +4,25 @@
         <div class="blog-post">
             <div style="display:inline-flex">
                 <h2 class="blog-post-title">{{$post->title}}</h2>
-                @if($isShow)
+                @can('update', $post)
                     <a style="margin: auto" href="/posts/{{$post->id}}/edit">
                         <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
                     </a>
-                @endif
-                <a style="margin: auto" href="/posts/{{$post->id}}}/delete">
-                    <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
-                </a>
+                @endcan
+                @can('delete', $post)
+                    <a style="margin: auto" href="/posts/{{$post->id}}}/delete">
+                        <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                    </a>
+                @endcan
             </div>
 
-            <p class="blog-post-meta">{{$post->user->created_at}} by <a href="#">{{$post->user->name}}</a>
+            <p class="blog-post-meta">{{$post->created_at}} by <a href="#">{{$post->user->name}}</a>
             </p>
 
             <p>
                 {!! $post->content !!}
-                <img src="http://127.0.0.1:8000/storage/72c76b674ec8793fcfd6555ff371bfbd/nxC9ozLfkORmoY92q9lPsejXchVvdNO2cwHiR2Jf.jpeg" alt="63" style="max-width: 100%;">你好你好似懂非懂说</p>
+                <img src="http://127.0.0.1:8000/storage/72c76b674ec8793fcfd6555ff371bfbd/nxC9ozLfkORmoY92q9lPsejXchVvdNO2cwHiR2Jf.jpeg"
+                     alt="63" style="max-width: 100%;">你好你好似懂非懂说</p>
             <p>
                 <br>
             </p>
