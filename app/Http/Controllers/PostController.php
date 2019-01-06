@@ -16,8 +16,8 @@ class PostController extends Controller {
     }
 
     public function show(Post $post) {
-        $isShow = true;
-        return view('post/show', compact('post', 'isShow'));
+        $post->load('comments');
+        return view('post/show', compact('post'));
     }
 
     public function create() {
