@@ -29,3 +29,6 @@ Route::get('/posts/{post}/edit', '\App\Http\Controllers\PostController@edit');
 Route::post('/posts/{post}', '\App\Http\Controllers\PostController@update');
 //删除文档
 Route::get('/posts/delete', '\App\Http\Controllers\PostController@delete');
+
+// 图片上传
+Route::post('/posts/image/upload', '\App\Http\Controllers\PostController@imageUpload');

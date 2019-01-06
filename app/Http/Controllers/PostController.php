@@ -50,4 +50,9 @@ class PostController extends Controller {
         return view('post/edit');
     }
 
+    // 上传图片
+    public function imageUpload() {
+        dd(request()->all());
+    }
+
 }
