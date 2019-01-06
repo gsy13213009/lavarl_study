@@ -22,6 +22,23 @@ class PostController extends Controller {
         return view('post/create');
     }
 
+    public function store() {
+
+//        $post = new Post();
+//        $post->title = request('title');
+//        $post->content = request('content');
+//        $post->save();
+
+//        $params = ['title' => request('title'), 'content' => request('content')];
+
+//        $params = request(['title', 'content']);
+//        Post::create($params);
+
+        $post = Post::create(request(['title', 'content']));
+
+        dd($post);
+    }
+
     public function edit() {
         return view('post/edit');
     }

@@ -2,7 +2,9 @@
 @section("content")
     <div class="col-sm-8 blog-main">
         <form action="/posts" method="POST">
-            <input type="hidden" name="_token" value="MESUY3topeHgvFqsy9EcM916UWQq6khiGHM91wHy">
+            {{--这两句话一样的效果，都是为了加上token，token是为了标识这是自己渲染的网页，而不是别人的网页注入的提交--}}
+            {{--<input type="hidden" name="_token" value="{{csrf_token()}}">--}}
+            {{csrf_field()}}
             <div class="form-group">
                 <label>标题</label>
                 <input name="title" type="text" class="form-control" placeholder="这里是标题">
