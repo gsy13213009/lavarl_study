@@ -33,16 +33,17 @@ class PostController extends Controller {
 
 //        $params = request(['title', 'content']);
 //        Post::create($params);
-
+        // 验证
         $this->validate(request(), [
             'title' => 'required|string|max:100|min:5',
             'content' => 'required|string|min:10'
         ]);
 
-
+        // 逻辑
         $post = Post::create(request(['title', 'content']));
 
-        dd($post);
+        // 渲染
+        return redirect('/posts');
     }
 
     public function edit() {
