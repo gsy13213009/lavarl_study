@@ -34,6 +34,12 @@ class PostController extends Controller {
 //        $params = request(['title', 'content']);
 //        Post::create($params);
 
+        $this->validate(request(), [
+            'title' => 'required|string|max:100|min:5',
+            'content' => 'required|string|min:10'
+        ]);
+
+
         $post = Post::create(request(['title', 'content']));
 
         dd($post);
