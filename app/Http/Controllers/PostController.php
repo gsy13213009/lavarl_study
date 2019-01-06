@@ -66,6 +66,14 @@ class PostController extends Controller {
         return redirect('/posts/' . $post->id);
     }
 
+    public function delete(Post $post) {
+        // TODO 用户验证
+
+        $post->delete();
+
+        return redirect('/posts');
+    }
+
     // 上传图片
     public function imageUpload(Request $request) {
         $file = $request->file('wangEditorH5File');
