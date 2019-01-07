@@ -2,7 +2,27 @@
 
 namespace App;
 
+use Laravel\Scout\Searchable;
+
 class Post extends Model {
+
+    use Searchable;
+
+    /**
+     * 定义搜索的type
+     */
+    public function searchableAs() {
+        return 'post';
+    }
+
+    public function toSearchableArray() {
+        return [
+            'title' => $this->title,
+            'content' => $this->content,
+        ];
+    }
+
+
     /**
      * 文章关联用户
      */
