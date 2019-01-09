@@ -7,7 +7,6 @@ use App\Post;
 use App\Zan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\View\View;
 
 class PostController extends Controller {
 
@@ -117,6 +116,18 @@ class PostController extends Controller {
     public function unzan(Post $post) {
         $post->zan(Auth::id())->delete();
         return back();
+    }
+
+    // 搜索结果页
+    public function search() {
+        $this->validate(request(),[
+            'query' => 'required'
+        ]);
+
+        $query = request('query');
+        $posts = Post::search($query)->get();
+        dd($posts);
+        return view('post/search', compact('posts', 'query'));
     }
 
 

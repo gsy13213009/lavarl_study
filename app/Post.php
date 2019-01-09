@@ -8,12 +8,14 @@ class Post extends Model {
 
     use Searchable;
 
-    /**
-     * 定义搜索的type
-     */
-    public function searchableAs() {
-        return 'post';
-    }
+    protected $table = 'posts';
+
+//    /**
+//     * 定义搜索的type
+//     */
+//    public function searchableAs() {
+//        return 'posts';
+//    }
 
     public function toSearchableArray() {
         return [
@@ -21,6 +23,7 @@ class Post extends Model {
             'content' => $this->content,
         ];
     }
+
 
 
     /**
