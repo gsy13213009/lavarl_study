@@ -64,3 +64,12 @@ Route::get('/posts/{post}/zan', '\App\Http\Controllers\PostController@zan');
 Route::get('/posts/{post}/unzan', '\App\Http\Controllers\PostController@unzan');
 // 图片上传
 Route::post('/posts/image/upload', '\App\Http\Controllers\PostController@imageUpload');
+
+///////////////////////////////////////////////////////////////////////////
+// 个人中心
+///////////////////////////////////////////////////////////////////////////
+
+// 个人中心页面
+Route::get('/user/{user}', '\App\Http\Controllers\UserController@show');
+Route::post('/user/{user}/fan', '\App\Http\Controllers\UserController@fan');
+Route::post('/user/{user}/unfan', '\App\Http\Controllers\UserController@unfan');
